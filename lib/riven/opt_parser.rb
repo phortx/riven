@@ -29,7 +29,8 @@ module Riven
           output_file: '',
           cover_file: '',
           css_file: '',
-          toc: false
+          toc: false,
+          dump_html: false
         }
 
         opt_parser = OptionParser.new do |opts|
@@ -51,6 +52,10 @@ module Riven
 
           opts.on("-t", "--toc", "Enabled the table of contents auto generation") do
             options[:toc] = true
+          end
+
+          opts.on("-d", "--dump-html", "Dumps the HTML file to STDOUT") do
+            options[:dump_html] = true
           end
 
           opts.on('-V', '--version', 'Displays the version') do

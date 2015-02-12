@@ -5,6 +5,37 @@ $LOAD_PATH.unshift(File.expand_path(File.dirname(__FILE__)) + '/../lib/')
 require 'rubygems'
 require 'riven'
 require 'riven/opt_parser'
+require 'riven/wkhtmltopdf'
+
+## Step 1: Check if wkhtmltopdf is set up correctly
+
+Riven::Wkhtmltopdf.check_installation
+
+
+## Step 2: Parse command line options
 
 options = Riven::OptParser.options
 files = Riven::OptParser.files
+
+
+## Step 3: Generate HTML
+
+html = '<b>hello world!</b>' # TODO generate html from markdown files
+tmp_file = '_riven_tmp_file.html'
+File.open(tmp_file, 'w') { |file| file.write(html) }
+
+
+## Step 4: Generate PDF
+
+# TODO auto generate output file name or take it from the options
+output_file = 'test.pdf'
+
+# Generate the PDF file from HTML file
+Riven::Wkhtmltopdf.generate_pdf(tmp_file, output_file)
+
+
+## Step 5: Dump the HTML code if requested
+
+if options[:dump_html]
+  puts html
+end
