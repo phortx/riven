@@ -2,4 +2,9 @@
 
 $LOAD_PATH.unshift(File.expand_path(File.dirname(__FILE__)) + '/../lib/')
 
+require 'rubygems'
 require 'riven'
+require 'riven/opt_parser'
+
+options = Riven::OptParser.options
+files = Riven::OptParser.files
