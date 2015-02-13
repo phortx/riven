@@ -1,14 +1,27 @@
+require 'rubygems'
 require 'riven/html_file'
+require 'github/markup'
 
 module Riven
   class HTMLGenerator
     attr_accessor :html, :html_file
 
-    public def initialize
+    public def initialize(markup)
       @html_file = Riven::HTMLFile.new('_riven_tmp_file.html')
 
-      @html = '<b>hello world!</b>' # TODO generate html from markdown files
+      @markup = markup
+
+      @html = generate_html
       @html_file.write(@html)
+    end
+
+    public def generate_html
+      css = File.read(File.expand_path(File.dirname(__FILE__)) + '/../../css/style.css')
+
+      html =  '<html><head><style type="text/css">' + css
+      html << '</style></head><body>'
+      html << GitHub::Markup.render('nil.md', @markup)
+      html << '</body></html>'
     end
 
     public def close!

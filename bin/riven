@@ -18,7 +18,8 @@ files = Riven::OptParser.files
 
 
 ## Step 3: Generate HTML
-generator = Riven::HTMLGenerator.new
+markup = Riven::MarkupFile.read_all(files)
+generator = Riven::HTMLGenerator.new(markup)
 
 
 ## Step 4: Determine PDF file name
