@@ -12,8 +12,6 @@ module Riven
       #
       # Returns an array of Riven::MarkupFile for each given markdown file
       #
-      # TODO handle directories
-      #
 
       public def files
         file_names = ARGV
