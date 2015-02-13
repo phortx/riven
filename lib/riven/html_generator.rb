@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'riven/html_file'
-require 'github/markup'
+require 'riven/markup/code'
+require 'redcarpet'
 
 module Riven
   class HTMLGenerator
@@ -20,8 +21,33 @@ module Riven
 
       html =  '<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'
       html << '<style type="text/css">' + css + '</style></head><body>'
-      html << GitHub::Markup.render('nil.md', @markup)
+      html << markup_to_html(@markup)
       html << '</body></html>'
+    end
+
+    public def markup_to_html(markup)
+      code = Riven::Markup::Code.new
+
+      markup = code.extract(markup)
+
+      opts = {
+        no_intra_emphasis: true,
+        tables: true,
+        underline: true,
+        highlight: true,
+        filter_html: true,
+        with_toc_data: true,
+        lax_spacing: true,
+        xhtml: true,
+        fenced_code_blocks: true
+      }
+
+      redcarpet_markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, opts)
+      html = redcarpet_markdown.render(markup)
+
+      html = code.process(html)
+
+      return html
     end
 
     public def close!
