@@ -14,7 +14,7 @@ Converts GitHub Flavored Markdown to awesome looking PDFs! Featuring:
 
 You need `wkhtmltopdf` in order to generate PDFs, since that's the PDF generator backend for riven:
 
-- If you got a Linux Distribution or OSX and your package mangement offers `wkhtmltopdf` in a newer version than `0.9.9.1`, then install it via your package manager.
+- If you got a Linux Distribution or OSX and your package mangement offers `wkhtmltopdf` in a newer version than `0.9.9.3`, then install it via your package manager.
 
 - If you there's no newer version, you should use the `wkhtmltopdf-binary` gem: `gem install wkhtmltopdf-binary`
 
