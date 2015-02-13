@@ -6,7 +6,7 @@ Converts GitHub Flavored Markdown files to PDFs! Feature highlights:
 - Syntax Highlighting with GitHub like theme
 - Smart page breaks
 - Smart directory based file merging
-- Page numbers (not finised yet, sorry)
+- ~~Page numbers~~ (not finised yet, sorry)
 - ~~Custom CSS~~ (not finised yet, sorry)
 - ~~Covers~~ (not finised yet, sorry)
 - ~~Table of Contents~~ (not finised yet, sorry)
