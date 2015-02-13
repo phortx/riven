@@ -1,13 +1,17 @@
 # Riven
 
-! Still under development, please stay tuned :) !
+Converts GitHub Flavored Markdown files to PDFs! Feature highlights:
 
-Converts GitHub Flavored Markdown to awesome looking PDFs! Featuring:
+- Highly readable PDFs with GitHub like theme
+- Syntax Highlighting with GitHub like theme
+- Smart page breaks
+- Smart directory based file merging
+- Page numbers (not finised yet, sorry)
+- ~~Custom CSS~~ (not finised yet, sorry)
+- ~~Covers~~ (not finised yet, sorry)
+- ~~Table of Contents~~ (not finised yet, sorry)
 
-- Syntax Highlighting
-- Custom CSS
-- Covers
-- Table of Contents
+The gem is still under development, but it already works. In the current version the output PDF file name will always be `test.pdf`. This will change soon.
 
 
 ## Prerequisites
