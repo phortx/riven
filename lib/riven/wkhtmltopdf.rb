@@ -10,8 +10,8 @@ module Riven
         end
       end
 
-      public def generate_pdf(input_file, output_file)
-        return `wkhtmltopdf #{input_file} #{output_file}`
+      public def generate_pdf(html_file, output_file)
+        output = `wkhtmltopdf #{html_file.file_name} #{output_file} 2>&1`
       end
     end
   end

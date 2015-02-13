@@ -6,6 +6,7 @@ require 'rubygems'
 require 'riven'
 require 'riven/opt_parser'
 require 'riven/wkhtmltopdf'
+require 'riven/html_generator'
 
 ## Step 1: Check if wkhtmltopdf is set up correctly
 
@@ -20,9 +21,7 @@ files = Riven::OptParser.files
 
 ## Step 3: Generate HTML
 
-html = '<b>hello world!</b>' # TODO generate html from markdown files
-tmp_file = '_riven_tmp_file.html'
-File.open(tmp_file, 'w') { |file| file.write(html) }
+generator = Riven::HTMLGenerator.new
 
 
 ## Step 4: Generate PDF
@@ -31,11 +30,9 @@ File.open(tmp_file, 'w') { |file| file.write(html) }
 output_file = 'test.pdf'
 
 # Generate the PDF file from HTML file
-Riven::Wkhtmltopdf.generate_pdf(tmp_file, output_file)
+Riven::Wkhtmltopdf.generate_pdf(generator.html_file, output_file)
 
 
 ## Step 5: Dump the HTML code if requested
 
-if options[:dump_html]
-  puts html
-end
+puts generator.html if options[:dump_html]
