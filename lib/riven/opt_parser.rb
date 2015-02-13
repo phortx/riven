@@ -16,7 +16,13 @@ module Riven
       #
 
       public def files
-        ARGV.map { |file| Riven::MarkupFile.new(file) }
+        file_names = ARGV
+
+        if file_names.size === 1 && File.directory?(file_names[0])
+          file_names = Dir["#{file_names[0]}/*.md"].sort
+        end
+
+        file_names.map { |file| Riven::MarkupFile.new(file) }
       end
 
 

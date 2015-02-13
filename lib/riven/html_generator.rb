@@ -18,8 +18,8 @@ module Riven
     public def generate_html
       css = File.read(File.expand_path(File.dirname(__FILE__)) + '/../../css/style.css')
 
-      html =  '<html><head><style type="text/css">' + css
-      html << '</style></head><body>'
+      html =  '<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'
+      html << '<style type="text/css">' + css + '</style></head><body>'
       html << GitHub::Markup.render('nil.md', @markup)
       html << '</body></html>'
     end

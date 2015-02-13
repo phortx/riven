@@ -1,10 +1,14 @@
+html {
+  width: 1000px;
+}
+
 body {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  background-color: white;
   color: #333;
-  overflow: hidden;
   font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.6;
   word-wrap: break-word;
 }
@@ -23,7 +27,6 @@ strong {
 }
 
 h1 {
-  font-size: 2em;
   margin: 0.67em 0;
 }
 
@@ -129,32 +132,44 @@ h6 {
 }
 
 h1 {
-  font-size: 30px;
-  page-break-before: break;
+  font-size: 40px;
+  page-break-before: always;
+  page-break-inside: avoid;
+}
+
+h1:first-child {
+  page-break-before: avoid;
+  margin-top: 0;
 }
 
 h2 {
-  font-size: 21px;
+  font-size: 30px;
+  page-break-inside: avoid;
 }
 
 h3 {
-  font-size: 16px;
+  font-size: 24px;
+  page-break-inside: avoid;
 }
 
 h4 {
-  font-size: 14px;
+  font-size: 18px;
+  page-break-inside: avoid;
 }
 
 h5 {
-  font-size: 12px;
+  font-size: 15px;
+  page-break-inside: avoid;
 }
 
 h6 {
-  font-size: 11px;
+  font-size: 14px;
+  page-break-inside: avoid;
 }
 
 blockquote {
   margin: 0;
+  page-break-inside: avoid;
 }
 
 ul,
@@ -189,6 +204,7 @@ pre {
   margin-top: 0;
   margin-bottom: 0;
   font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  page-break-inside: avoid;
 }
 
 .markdown-body>*:first-child {
@@ -239,7 +255,6 @@ h6:hover .anchor {
 
 h1 {
   padding-bottom: 0.3em;
-  font-size: 2.25em;
   line-height: 1.2;
   border-bottom: 1px solid #eee;
 }
@@ -250,7 +265,6 @@ h1 .anchor {
 
 h2 {
   padding-bottom: 0.3em;
-  font-size: 1.75em;
   line-height: 1.225;
   border-bottom: 1px solid #eee;
 }
@@ -260,7 +274,6 @@ h2 .anchor {
 }
 
 h3 {
-  font-size: 1.5em;
   line-height: 1.43;
 }
 
@@ -268,16 +281,8 @@ h3 .anchor {
   line-height: 1.2;
 }
 
-h4 {
-  font-size: 1.25em;
-}
-
 h4 .anchor {
   line-height: 1.2;
-}
-
-h5 {
-  font-size: 1em;
 }
 
 h5 .anchor {
@@ -285,7 +290,6 @@ h5 .anchor {
 }
 
 h6 {
-  font-size: 1em;
   color: #777;
 }
 

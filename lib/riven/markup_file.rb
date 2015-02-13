@@ -18,6 +18,10 @@ module Riven
       unless File.exists?(@path)
         raise "File '#{path}' doesn't exist"
       end
+
+      if File.directory?(@path)
+        raise "Mixing files and directories is not allowed, sorry"
+      end
     end
 
 
@@ -26,7 +30,7 @@ module Riven
         markup = ''
 
         markup_files.each do |file|
-          markup << "\n" + File.read(file.path)
+          markup << "\n\n" + File.read(file.path)
         end
 
         return markup
