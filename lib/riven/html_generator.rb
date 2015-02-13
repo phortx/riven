@@ -10,5 +10,9 @@ module Riven
       @html = '<b>hello world!</b>' # TODO generate html from markdown files
       @html_file.write(@html)
     end
+
+    public def close!
+      @html_file.delete!
+    end
   end
 end

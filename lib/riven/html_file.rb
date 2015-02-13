@@ -9,5 +9,9 @@ module Riven
     public def write(content)
       File.open(@file_name, 'w') { |file| file.write(content) }
     end
+
+    public def delete!
+      File.delete @file_name
+    end
   end
 end
