@@ -11,6 +11,7 @@ body {
   font-size: 20px;
   line-height: 1.6;
   word-wrap: break-word;
+  padding: 4em;
 }
 
 a {
@@ -38,10 +39,6 @@ hr {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0;
-}
-
-pre {
-  overflow: auto;
 }
 
 code,
@@ -265,6 +262,7 @@ h1 .anchor {
 
 h2 {
   padding-bottom: 0.3em;
+  margin-top: 2.5em;
   line-height: 1.225;
   border-bottom: 1px solid #eee;
 }
@@ -274,6 +272,7 @@ h2 .anchor {
 }
 
 h3 {
+  margin-top: 1.7em;
   line-height: 1.43;
 }
 
@@ -418,7 +417,8 @@ pre>code {
   margin: 0;
   font-size: 100%;
   word-break: normal;
-  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
   background: transparent;
   border: 0;
 }
@@ -442,10 +442,6 @@ pre {
   word-break: normal;
 }
 
-pre {
-  word-wrap: normal;
-}
-
 pre code {
   display: inline;
   max-width: initial;
@@ -453,7 +449,8 @@ pre code {
   margin: 0;
   overflow: initial;
   line-height: inherit;
-  word-wrap: normal;
+  white-space: pre-wrap;
+  word-wrap: break-word;
   background-color: transparent;
   border: 0;
 }
@@ -636,7 +633,7 @@ kbd {
 }
 
 div.CodeRay { }
-span.CodeRay { white-space: pre; border: 0px; padding: 2px }
+span.CodeRay { white-space: pre-wrap; word-wrap: break-word; border: 0px; padding: 2px }
 
 table.CodeRay { border-collapse: collapse; width: 100%; padding: 2px }
 table.CodeRay td {
@@ -661,9 +658,8 @@ table.CodeRay td {
 .CodeRay .code { width: 100% }
 
 ol.CodeRay { font-size: 10pt }
-ol.CodeRay li { white-space: pre }
+ol.CodeRay li { white-space: pre-wrap; word-wrap: break-word; }
 
-.CodeRay .code pre { overflow: auto }
 .CodeRay .debug { color:white ! important; background:blue ! important; }
 
 .CodeRay .annotation { color:#007 }
