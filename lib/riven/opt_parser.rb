@@ -34,7 +34,8 @@ module Riven
           cover_file: '',
           css_file: '',
           toc: false,
-          dump_html: false
+          dump_html: false,
+          verbose: false
         }
 
         opt_parser = OptionParser.new do |opts|
@@ -60,6 +61,10 @@ module Riven
 
           opts.on("-d", "--dump-html", "Dumps the HTML file to STDOUT") do
             options[:dump_html] = true
+          end
+
+          opts.on('-v', '--verbose', 'Print the output of wkhtmltopdf to STDOUT. Don\'t combine with -d') do
+            options[:verbose] = true
           end
 
           opts.on('-V', '--version', 'Displays the version') do

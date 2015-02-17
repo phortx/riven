@@ -28,7 +28,8 @@ output_file = 'test.pdf'
 
 
 ## Step 5: Generate the PDF file from HTML file
-Riven::Wkhtmltopdf.generate_pdf(generator.html_file, output_file)
+output = Riven::Wkhtmltopdf.generate_pdf(generator.html_file, output_file)
+puts output if options[:verbose]
 
 
 ## Step 6: Close the generator
