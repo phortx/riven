@@ -16,11 +16,13 @@ The gem is still under development, but it already works. In the current version
 
 ## Prerequisites
 
-You need `wkhtmltopdf` in order to generate PDFs, since that's the PDF generator backend for riven:
+You need `wkhtmltopdf` in order to generate PDFs, since that's the PDF generator backend for riven. You should use the QT patched version of `wkhtmltopdf`. You may also use the version without patched qt, but that will disable the following features of riven: Page numbers, table of contents.
 
-- If you got a Linux Distribution or OSX and your package mangement offers `wkhtmltopdf` in a newer version than `0.9.9.3`, then install it via your package manager.
+- If you got Arch Linux, you can just install the packages `wkhtmltopdf-static`and `icu48` from the AUR.
 
-- If you there's no newer version, you should use the `wkhtmltopdf-binary` gem: `gem install wkhtmltopdf-binary`
+- If you got a Linux Distribution or OSX you may compile `wkhtmltopdf` from the sources. See http://stackoverflow.com/questions/10981960/wkhtmltopdf-patched-qt.
+
+- Otherwise, you should download `wkhtmltopdf` from the [official website](http://wkhtmltopdf.org/downloads.html).
 
 After that, make sure you can execute the `wkhtmltopdf` command in your shell:
 
