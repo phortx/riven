@@ -16,8 +16,8 @@ module Riven
           '--page-size A4',
           '--margin-bottom 10mm',
           '--margin-top 10mm',
-          '--margin-left 8mm',
-          '--margin-right 8mm'
+          '--margin-left 20mm',
+          '--margin-right 20mm'
         ]
 
         output = `wkhtmltopdf #{params.join(' ')} #{html_file.file_name} #{output_file} 2>&1`
