@@ -13,10 +13,11 @@ module Riven
       # Returns an array of Riven::MarkupFile for each given markdown file
       #
 
-      public def files
+      public def files(options)
         file_names = ARGV
 
         if file_names.size === 1 && File.directory?(file_names[0])
+          options[:dir_given] = file_names.first
           file_names = Dir["#{file_names[0]}/*.md"].sort
         end
 
@@ -36,7 +37,9 @@ module Riven
           toc: false,
           toc_headline: 'Contents',
           dump_html: false,
-          verbose: false
+          dump_cover_html: false,
+          verbose: false,
+          dir_given: false
         }
 
         opt_parser = OptionParser.new do |opts|
@@ -53,7 +56,7 @@ module Riven
           end
 
           opts.on("-c FILE", "--cover=FILE", "Path to the cover MD file") do |cover_file|
-            options[:cover_file] = cover_file
+            options[:cover_file] = Riven::MarkupFile.new(cover_file)
           end
 
           opts.on("-t HEADLINE", "--toc=HEADLINE", "Enabled the table of contents auto generation") do |headline|
@@ -61,8 +64,12 @@ module Riven
             options[:toc_headline] = headline
           end
 
-          opts.on("-d", "--dump-html", "Dumps the HTML file to STDOUT") do
+          opts.on("-d", "--dump-html", "Dumps the main HTML file to STDOUT") do
             options[:dump_html] = true
+          end
+
+          opts.on("-D", "--dump-cover-html", "Dumps the cover HTML file to STDOUT") do
+            options[:dump_cover_html] = true
           end
 
           opts.on('-v', '--verbose', 'Print the output of wkhtmltopdf to STDOUT. Don\'t combine with -d') do

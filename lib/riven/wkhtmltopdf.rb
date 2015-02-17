@@ -10,7 +10,7 @@ module Riven
         end
       end
 
-      public def generate_pdf(html_file, output_file, options)
+      public def generate_pdf(html_file, cover_html_file, output_file, options)
         params = [
           '--page-size A4',
           '--margin-bottom 10mm',
@@ -23,6 +23,10 @@ module Riven
           '--footer-spacing 4'
         ]
 
+        unless options[:cover_file] === ''
+          params << "cover \"#{cover_html_file.file_name}\""
+        end
+
         if options[:toc]
           xsl = File.read(File.expand_path(File.dirname(__FILE__)) + '/../../toc.xsl')
           xsl.gsub! '[[toc_headline]]', options[:toc_headline]
@@ -33,9 +37,11 @@ module Riven
           params << "--xsl-style-sheet \"#{xsl_file_name}\""
         end
 
-        output = `wkhtmltopdf #{params.join(' ')} #{html_file.file_name} #{output_file} 2>&1`
+        output = `wkhtmltopdf #{params.join(' ')} "#{html_file.file_name}" "#{output_file}" 2>&1`
 
         File.delete xsl_file_name
+
+        return output
       end
     end
   end

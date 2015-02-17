@@ -8,7 +8,7 @@ Converts GitHub Flavored Markdown files to PDFs! Feature highlights:
 - Smart directory based file merging
 - Page numbers (see *Prerequisites* section)
 - ~~Custom CSS~~ (not finised yet, sorry)
-- ~~Covers~~ (not finised yet, sorry)
+- Covers (see *Prerequisites* section)
 - Table of Contents (see *Prerequisites* section)
 
 The gem is still under development, but it already works. In the current version the output PDF file name will always be `test.pdf`. This will change soon.
@@ -16,7 +16,7 @@ The gem is still under development, but it already works. In the current version
 
 ## Prerequisites
 
-You need `wkhtmltopdf` in order to generate PDFs, since that's the PDF generator backend for riven. You should use the QT patched version of `wkhtmltopdf`. You may also use the version without patched qt, but that will disable the following features of riven: Page numbers, table of contents.
+You need `wkhtmltopdf` in order to generate PDFs, since that's the PDF generator backend for riven. You should use the QT patched version of `wkhtmltopdf`. You may also use the version without patched qt, but that will disable the following features of riven: Page numbers, table of contents, covers.
 
 - If you got Arch Linux, you can just install the packages `wkhtmltopdf-static`and `icu48` from the AUR.
 

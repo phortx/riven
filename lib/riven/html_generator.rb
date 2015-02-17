@@ -7,8 +7,8 @@ module Riven
   class HTMLGenerator
     attr_accessor :html, :html_file
 
-    public def initialize(markup)
-      @html_file = Riven::HTMLFile.new('_riven_tmp_file.html')
+    public def initialize(tmp_file, markup)
+      @html_file = Riven::HTMLFile.new(tmp_file)
 
       @markup = markup
 
@@ -35,7 +35,6 @@ module Riven
         tables: true,
         underline: true,
         highlight: true,
-        filter_html: true,
         with_toc_data: true,
         lax_spacing: true,
         xhtml: true,
@@ -46,6 +45,9 @@ module Riven
       html = redcarpet_markdown.render(markup)
 
       html = code.process(html)
+
+      html.gsub! '////[COVERSTART]////', '<div class="cover-page">'
+      html.gsub! '////[COVEREND]////',   '</div>'
 
       return html
     end
