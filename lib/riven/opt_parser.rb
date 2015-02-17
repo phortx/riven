@@ -34,6 +34,7 @@ module Riven
           cover_file: '',
           css_file: '',
           toc: false,
+          toc_headline: 'Contents',
           dump_html: false,
           verbose: false
         }
@@ -55,8 +56,9 @@ module Riven
             options[:cover_file] = cover_file
           end
 
-          opts.on("-t", "--toc", "Enabled the table of contents auto generation") do
+          opts.on("-t HEADLINE", "--toc=HEADLINE", "Enabled the table of contents auto generation") do |headline|
             options[:toc] = true
+            options[:toc_headline] = headline
           end
 
           opts.on("-d", "--dump-html", "Dumps the HTML file to STDOUT") do

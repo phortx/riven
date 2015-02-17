@@ -9,7 +9,7 @@ Converts GitHub Flavored Markdown files to PDFs! Feature highlights:
 - Page numbers (see *Prerequisites* section)
 - ~~Custom CSS~~ (not finised yet, sorry)
 - ~~Covers~~ (not finised yet, sorry)
-- ~~Table of Contents~~ (not finised yet, sorry)
+- Table of Contents (see *Prerequisites* section)
 
 The gem is still under development, but it already works. In the current version the output PDF file name will always be `test.pdf`. This will change soon.
 
@@ -125,8 +125,8 @@ The syntax highlightning is powered by [coderay](https://github.com/rubychan/cod
 
 ### Table of Contents
 
-For an automatic generated table of contents after the cover, just add the `-t` param:
+For an automatic generated table of contents after the cover, just add the `-t` param and provide a headline for the table of contents:
 
 ```bash
-$ riven -t -c documentation/cover.md -o doc.pdf documentation/
+$ riven -t "Contents" -c documentation/cover.md -o doc.pdf documentation/
 ```
