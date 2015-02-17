@@ -12,12 +12,15 @@ module Riven
 
       public def generate_pdf(html_file, output_file)
         params = [
-          '--disable-smart-shrinking',
           '--page-size A4',
           '--margin-bottom 10mm',
           '--margin-top 10mm',
           '--margin-left 20mm',
-          '--margin-right 20mm'
+          '--margin-right 20mm',
+          '--footer-left "[section]"',
+          '--footer-right "[page] / [toPage]"',
+          '--footer-font-size 7',
+          '--footer-spacing 4'
         ]
 
         output = `wkhtmltopdf #{params.join(' ')} #{html_file.file_name} #{output_file} 2>&1`
