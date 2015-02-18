@@ -13,14 +13,14 @@ module Riven
       public def generate_pdf(html_file, cover_html_file, output_file, options)
         params = [
           '--page-size A4',
-          '--margin-bottom 10mm',
-          '--margin-top 10mm',
-          '--margin-left 20mm',
-          '--margin-right 20mm',
+          '--margin-bottom 20mm',
+          '--margin-top 20mm',
+          '--margin-left 30mm',
+          '--margin-right 30mm',
           '--footer-left "[section]"',
           '--footer-right "[page] / [toPage]"',
           '--footer-font-size 7',
-          '--footer-spacing 4'
+          '--footer-spacing 10'
         ]
 
         unless options[:cover_file] === ''

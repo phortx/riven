@@ -752,7 +752,9 @@ ol.CodeRay li { white-space: pre-wrap; word-wrap: break-word; }
 .CodeRay .head .head { color: #f4f; }
 
 
-
+.cover-page {
+  text-align: center;
+}
 
 .cover-page h1,
 .cover-page h2,
