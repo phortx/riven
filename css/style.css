@@ -758,7 +758,6 @@ ol.CodeRay li { white-space: pre-wrap; word-wrap: break-word; }
   margin: 0;
   padding: 0;
   width: 100%;
-  overflow: visible;
 }
 
 .cover-page h1,
@@ -770,10 +769,6 @@ ol.CodeRay li { white-space: pre-wrap; word-wrap: break-word; }
   padding: 0;
   margin-left: 0;
   margin-right: 0;
-
-  /* since text-align: center is buggy */
-  position: relative;
-  left: -55px;
 }
 
 .cover-page h1 {
