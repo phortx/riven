@@ -1,5 +1,5 @@
 html {
-  width: 1000px;
+  width: 840px;
 }
 
 body {
@@ -11,6 +11,7 @@ body {
   font-size: 20px;
   line-height: 1.6;
   word-wrap: break-word;
+  text-align: justify;
 }
 
 a {
