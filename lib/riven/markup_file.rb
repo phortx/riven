@@ -46,7 +46,7 @@ module Riven
       end
 
       private def exclude?(except, file)
-        except.select { |f| f.path === file.path }.any?
+        except.select { |f| !f.empty? && f.path === file.path }.any?
       end
     end
   end
