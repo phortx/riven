@@ -37,8 +37,20 @@ generator = Riven::HTMLGenerator.new('_riven_tmp_file.html', markup)
 
 
 ## Step 6: Determine PDF file name
-# TODO auto generate output file name or take it from the options
-output_file = 'test.pdf'
+output_file = options[:output_file]
+
+if output_file.empty?
+  unless options[:dir_given] === false
+    output_file = options[:dir_given] + '.pdf'
+  else
+    puts "No output file name given. Please specify output file name via -o param."
+    generator.close!
+    cover_generator.close!
+    exit
+  end
+end
+
+puts "Output file: #{output_file}" if options[:verbose]
 
 
 ## Step 7: Generate the PDF file from HTML file

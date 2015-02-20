@@ -6,12 +6,11 @@ Converts GitHub Flavored Markdown files to PDFs! Feature highlights:
 - Syntax Highlighting with GitHub like theme
 - Smart page breaks
 - Smart directory based file merging
+- Smart output file naming
 - Page numbers (see *Prerequisites* section)
 - ~~Custom CSS~~ (not finised yet, sorry)
 - Covers (see *Prerequisites* section)
 - Table of Contents (see *Prerequisites* section)
-
-The gem is still under development, but it already works. In the current version the output PDF file name will always be `test.pdf`. This will change soon.
 
 
 ## Prerequisites
@@ -67,7 +66,7 @@ $ riven -o awesome.pdf example-1.md example-2.pdf
 
 ### A directory
 
-This will take your `documentation` directory with all it's files and generate a `doc.pdf` in the same directory:
+This will take your `documentation` directory with all it's files and generate a `documentation.pdf` (the name is guessed from the directory name, but you may also specify a output file name via the `-o` param) in the same directory:
 
 ```bash
 $ ls
@@ -80,10 +79,10 @@ chapter-3-admin-gui.md
 chapter-4-commandline-interface.md
 chapter-5-api.md
 
-$ riven -o doc.pdf documentation/
+$ riven documentation/
 
 $ ls
-doc.pdf
+documentation.pdf
 documentation/
 ```
 
@@ -95,7 +94,7 @@ documentation/
 You may give riven an additional CSS file with the `-s` param:
 
 ```bash
-$ riven -s doc.css -o doc.pdf documentation/
+$ riven -s doc.css documentation/
 ```
 
 
@@ -104,7 +103,7 @@ $ riven -s doc.css -o doc.pdf documentation/
 You may give riven a cover MD file via the `-c` param, which will be prepended and not provided with a page number.
 
 ```bash
-$ riven -c documentation/cover.md -o doc.pdf documentation/
+$ riven -c documentation/cover.md documentation/
 ```
 
 
@@ -128,5 +127,5 @@ The syntax highlightning is powered by [coderay](https://github.com/rubychan/cod
 For an automatic generated table of contents after the cover, just add the `-t` param and provide a headline for the table of contents:
 
 ```bash
-$ riven -t "Contents" -c documentation/cover.md -o doc.pdf documentation/
+$ riven -t "Contents" -c documentation/cover.md documentation/
 ```
