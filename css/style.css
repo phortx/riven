@@ -430,7 +430,7 @@ pre>code {
 .highlight pre,
 pre {
   padding: 16px;
-  overflow: auto;
+  overflow: hidden;
   font-size: 85%;
   line-height: 1.45;
   background-color: #eee;
