@@ -28,12 +28,12 @@ end
 unless options[:cover_file] === ''
   cover_markup = Riven::MarkupFile.read_cover(options[:cover_file])
 end
-cover_generator = Riven::HTMLGenerator.new('_riven_cover_tmp_file.html', cover_markup || '')
+cover_generator = Riven::HTMLGenerator.new('_riven_cover_tmp_file.html', cover_markup || '', options)
 
 
 ## Step 5: Generate HTML for main document
 markup = Riven::MarkupFile.read_all(files, options[:cover_file])
-generator = Riven::HTMLGenerator.new('_riven_tmp_file.html', markup)
+generator = Riven::HTMLGenerator.new('_riven_tmp_file.html', markup, options)
 
 
 ## Step 6: Determine PDF file name

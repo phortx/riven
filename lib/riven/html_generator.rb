@@ -7,10 +7,11 @@ module Riven
   class HTMLGenerator
     attr_accessor :html, :html_file
 
-    public def initialize(tmp_file, markup)
+    public def initialize(tmp_file, markup, options)
       @html_file = Riven::HTMLFile.new(tmp_file)
 
       @markup = markup
+      @options = options
 
       @html = generate_html
       @html_file.write(@html)
@@ -18,6 +19,11 @@ module Riven
 
     public def generate_html
       css = File.read(File.expand_path(File.dirname(__FILE__)) + '/../../css/style.css')
+
+      unless @options[:css_file].empty?
+        css << "\n\n"
+        css << File.read(@options[:css_file])
+      end
 
       html =  '<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'
       html << '<style type="text/css">' + css + '</style></head><body>'

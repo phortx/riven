@@ -52,7 +52,7 @@ module Riven
           end
 
           opts.on("-s FILE", "--css=FILE", "Path to the custom CSS file") do |css_file|
-            options[:css_file] = css_file
+            options[:css_file] = File.expand_path(css_file)
           end
 
           opts.on("-c FILE", "--cover=FILE", "Path to the cover MD file") do |cover_file|

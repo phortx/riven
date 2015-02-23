@@ -8,7 +8,7 @@ Converts GitHub Flavored Markdown files to PDFs! Feature highlights:
 - Smart directory based file merging
 - Smart output file naming
 - Page numbers (see *Prerequisites* section)
-- ~~Custom CSS~~ (not finised yet, sorry)
+- Custom CSS
 - Covers (see *Prerequisites* section)
 - Table of Contents (see *Prerequisites* section)
 
@@ -96,6 +96,8 @@ You may give riven an additional CSS file with the `-s` param:
 ```bash
 $ riven -s doc.css documentation/
 ```
+
+unfortunately this CSS doesn't affect the table of contents currently, sorry for that.
 
 
 ### Cover
