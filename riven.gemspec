@@ -6,6 +6,7 @@ Gem::Specification.new do |spec|
   spec.name          = 'riven'
 
   spec.version       = Riven::VERSION
+  spec.required_ruby_version = '~> 2.1'
   spec.date          = Time.now.strftime('%Y-%m-%d')
 
   spec.summary       = 'Converts Markdown to PDF'
