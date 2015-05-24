@@ -19,7 +19,7 @@ You need `wkhtmltopdf` in order to generate PDFs, since that's the PDF generator
 
 - If you got Arch Linux, you can just install the packages `wkhtmltopdf-static`and `icu48` from the AUR.
 
-- If you got a Linux Distribution or OSX you may compile `wkhtmltopdf` from the sources. See http://stackoverflow.com/questions/10981960/wkhtmltopdf-patched-qt.
+- If you got another Linux Distribution (like Ubuntu) or OSX you have compile `wkhtmltopdf` from the sources. See http://natepinchot.com/2014/01/31/building-static-wkhtmltopdf/. This may take some time: On my i7, 16GB RAM, SSD Notebook it took about 20 minutes. 
 
 - Otherwise, you should download `wkhtmltopdf` from the [official website](http://wkhtmltopdf.org/downloads.html).
 
