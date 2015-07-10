@@ -17,9 +17,9 @@ module Riven
 
       public def highlighted
         if @language
-          CodeRay.scan(@code, @language).div(tab_width: 4)
+          CodeRay.scan(@code, @language).div(tab_width: 4, css: :class)
         else
-          CodeRay.scan(@code, :text).div
+          CodeRay.scan(@code, :text).div(tab_width: 4, css: :class)
         end
       end
     end

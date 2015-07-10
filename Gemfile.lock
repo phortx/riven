@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    riven (1.0.1)
+    riven (1.0.2)
       coderay (~> 1.1)
       redcarpet (~> 3.2)
 
@@ -10,7 +10,7 @@ GEM
   specs:
     coderay (1.1.0)
     rake (10.4.2)
-    redcarpet (3.2.3)
+    redcarpet (3.3.1)
 
 PLATFORMS
   ruby
@@ -19,3 +19,6 @@ DEPENDENCIES
   bundler (~> 1.8)
   rake (~> 10.4)
   riven!
+
+BUNDLED WITH
+   1.10.3
