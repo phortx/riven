@@ -39,7 +39,7 @@ module Riven
 
         output = `wkhtmltopdf #{params.join(' ')} "#{html_file.file_name}" "#{output_file}" 2>&1`
 
-        File.delete xsl_file_name
+        File.delete xsl_file_name if options[:toc]
 
         return output
       end
