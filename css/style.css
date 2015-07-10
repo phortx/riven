@@ -435,6 +435,7 @@ pre {
   line-height: 1.45;
   background-color: #eee;
   border-radius: 3px;
+  border: 1px solid #aaa;
 }
 
 .highlight pre {
