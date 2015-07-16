@@ -169,11 +169,18 @@ blockquote {
   page-break-inside: avoid;
 }
 
+p {
+  orphans: 5;
+  widows: 5;
+}
+
 ul,
 ol {
   padding: 0;
   margin-top: 0;
   margin-bottom: 0;
+  orphans: 3;
+  widows: 3;
 }
 
 ol ol,
@@ -201,7 +208,8 @@ pre {
   margin-top: 0;
   margin-bottom: 0;
   font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  page-break-inside: avoid;
+  orphans: 10;
+  widows: 10;
 }
 
 .markdown-body>*:first-child {
@@ -237,6 +245,7 @@ h6 {
   margin-bottom: 16px;
   font-weight: bold;
   line-height: 1.4;
+  page-break-after: avoid;
 }
 
 h1:hover .anchor,
