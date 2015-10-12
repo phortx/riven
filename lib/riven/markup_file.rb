@@ -4,7 +4,7 @@ module Riven
   #
 
   class MarkupFile
-    attr_accessor :path
+    attr_reader :path, :dirname, :markup
 
 
     #
@@ -14,6 +14,7 @@ module Riven
 
     public def initialize(path)
       @path = File.expand_path(path)
+      @dirname = Pathname.new(path).dirname
 
       unless File.exists?(@path)
         raise "File '#{path}' doesn't exist"
@@ -21,6 +22,27 @@ module Riven
 
       if File.directory?(@path)
         raise "Mixing files and directories is not allowed, sorry"
+      end
+
+      puts "Loading file: " + path
+      @markup = "\n" + File.read(@path)
+      resolve_includes
+    end
+
+    #
+    # Recursive replace all includes with their respective file content
+    #
+    
+    public def resolve_includes
+      loop do
+        non_found = true
+
+        @markup.gsub!(/<<\[\s*([^\]\s]+)\s*\]/) do |inc|
+          non_found = false
+          MarkupFile.new(@dirname + $1).markup
+        end
+
+        break if non_found
       end
     end
 
@@ -33,7 +55,9 @@ module Riven
         except = [except] unless except.respond_to?(:each)
 
         markup_files.each do |file|
-          markup << "\n\n" + File.read(file.path) unless exclude?(except, file)
+          unless exclude?(except, file)
+            markup << "\n" + file.markup
+          end
         end
 
         return markup

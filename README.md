@@ -1,35 +1,42 @@
 # Riven
 
-Converts GitHub Flavored Markdown files to PDFs! Feature highlights:
+Converts GitHub Flavored Markdown files to PDFs! Write documentations, books, reports and documents with your editor.
+Publish them as PDF! It's that simple and even more powerful.
 
-- Highly readable PDFs with GitHub like theme
+
+Feature highlights:
+
+- Riven Extended Markdown featuring includes: Structure you work!
+- Generates well readable, optimized, beautiful looking PDFs
+- Style your PDF via CSS
+- Define a special and nice looking cover page
+- Auto generated table of contents
 - Syntax Highlighting with GitHub like theme
-- Smart page breaks
-- Smart directory based file merging
-- Smart output file naming
-- Page numbers (see *Prerequisites* section)
-- Custom CSS
-- Covers (see *Prerequisites* section)
-- Table of Contents (see *Prerequisites* section)
+- Page numbers
+- Smart directory based file merging and output file naming
 
 
 ## Prerequisites
 
-You need `wkhtmltopdf` in order to generate PDFs, since that's the PDF generator backend for riven. You should use the QT patched version of `wkhtmltopdf`. You may also use the version without patched qt, but that will disable the following features of riven: Page numbers, table of contents, covers.
+You need `wkhtmltopdf` in order to generate PDFs, since that's the PDF generator backend for riven. You should use the
+QT patched version of `wkhtmltopdf` to get all the features of riven. You may also use the version without patched qt,
+but that will disable the following features of riven: Page numbers, table of contents, covers.
 
 - If you got Arch Linux, you can just install the packages `wkhtmltopdf-static`and `icu48` from the AUR.
 
-- If you got another Linux Distribution (like Ubuntu) or OSX you have compile `wkhtmltopdf` from the sources. See http://natepinchot.com/2014/01/31/building-static-wkhtmltopdf/. This may take some time: On my i7, 16GB RAM, SSD Notebook it took about 20 minutes. 
+- If you got another Linux Distribution (like Ubuntu) or OSX you have compile `wkhtmltopdf` from the sources. See http://natepinchot.com/2014/01/31/building-static-wkhtmltopdf/. This may take some time: On my i7, 16GB RAM, SSD
+Notebook it took about 20 minutes.
 
 - Otherwise, you should download `wkhtmltopdf` from the [official website](http://wkhtmltopdf.org/downloads.html).
 
 After that, make sure you can execute the `wkhtmltopdf` command in your shell:
 
 ```bash
-$ wkhtmltopdf -v
+$ wkhtmltopdf -V
 ```
 
-If it works, everything is nice and you may proceed with the next step. If not, please make sure, `wkhtmltopdf` is correctly installed and the executable is within your `PATH`.
+If it works, everything is nice and you may proceed with the next step. If not, please make sure, `wkhtmltopdf` is
+correctly installed and the executable is within your `PATH`.
 
 
 ## Installation
@@ -43,7 +50,9 @@ $ gem install riven
 
 ## Usage
 
-Riven is designed to create documents out of a bunch of markdown files. So it may take a single markdown file or a directory with some markdown files inside. Consider that the files are merged in alphabetical order if you provide a folder. Just take a look at the following examples.
+Riven is designed to create documents out of a bunch of markdown files. So it may take a single markdown file or a
+directory with some markdown files inside. Consider that the files are merged in alphabetical order if you provide a
+folder. Just take a look at the following examples.
 
 
 ### Single file to PDF
@@ -66,7 +75,9 @@ $ riven -o awesome.pdf example-1.md example-2.pdf
 
 ### A directory
 
-This will take your `documentation` directory with all it's files and generate a `documentation.pdf` (the name is guessed from the directory name, but you may also specify a output file name via the `-o` param) in the same directory:
+This will take your `documentation` directory with all it's files and generate a `documentation.pdf` (the name is
+guessed from the directory name, but you may also specify a output file name via the `-o` param) in the same
+directory:
 
 ```bash
 $ ls
@@ -84,6 +95,34 @@ $ riven documentation/
 $ ls
 documentation.pdf
 documentation/
+```
+
+
+### Structure via includes
+
+You may also structure your document via includes. Just define a main file and you may define as many include directives
+within that file and any other files (even in subdirectories) as you want.
+
+**index.md**
+
+```md
+## Just a example
+
+This is a include:
+
+<<[ another_file.md ]
+```
+
+**another_file.md**
+
+```md
+More **content** in this file.
+```
+
+Generate the PDF via:
+
+```bash
+$ riven -o awesome.pdf index.md
 ```
 
 
