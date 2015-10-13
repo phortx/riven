@@ -1,3 +1,5 @@
+require 'pathname'
+
 module Riven
   #
   # Represents a MD File
@@ -39,7 +41,7 @@ module Riven
 
         @markup.gsub!(/<<\[\s*([^\]\s]+)\s*\]/) do |inc|
           non_found = false
-          MarkupFile.new(@dirname + $1).markup
+          MarkupFile.new(@dirname.to_s + '/' + $1).markup
         end
 
         break if non_found
