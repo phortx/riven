@@ -28,13 +28,15 @@ module Riven
 
       puts "Loading file: " + path
       @markup = "\n" + File.read(@path)
+      rewrite_paths
       resolve_includes
     end
+
 
     #
     # Recursive replace all includes with their respective file content
     #
-    
+
     public def resolve_includes
       loop do
         non_found = true
@@ -45,6 +47,19 @@ module Riven
         end
 
         break if non_found
+      end
+    end
+
+
+    #
+    # Prefixes all paths with the file basedir in order to make everything working across includes over different
+    # directories
+    #
+
+    public def rewrite_paths
+      @markup.gsub!(/\[([^\]]+)\]\(([^\)]+)\)/) do |ref|
+        puts "    - Rewriting ref '#{$2}' to '#{@dirname}/#{$2}'"
+        "[#{$1}](#{@dirname}/#{$2})"
       end
     end
 
