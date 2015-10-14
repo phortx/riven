@@ -77,6 +77,7 @@ module Riven
           end
 
           opts.on('-V', '--version', 'Displays the version') do
+            require 'riven/version'
             puts Riven::VERSION.to_s
             exit
           end
