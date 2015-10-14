@@ -57,9 +57,16 @@ module Riven
     #
 
     public def rewrite_paths
-      @markup.gsub!(/\[([^\]]+)\]\(([^\)]+)\)/) do |ref|
-        puts "    - Rewriting ref '#{$2}' to '#{@dirname}/#{$2}'"
-        "[#{$1}](#{@dirname}/#{$2})"
+      @markup.gsub!(/\[([^\]]+)\]\(([^\)]+)\)/) do |match|
+        label = $1
+        ref = $2
+
+        if ref =~ /^http(s)?/
+          "[#{label}](#{ref})"
+        else
+          puts "    - Rewriting ref '#{ref}' to '#{@dirname}/#{ref}'"
+          "[#{label}](#{@dirname}/#{ref})"
+        end
       end
     end
 
