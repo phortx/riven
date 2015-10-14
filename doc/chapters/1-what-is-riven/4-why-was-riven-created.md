@@ -1,4 +1,4 @@
-### 1.4 Why was Riven created?
+## 1.4 Why was Riven created?
 
 I've two hobbies. Ok I got more hobbies, but only two of them are relevant for riven.
 

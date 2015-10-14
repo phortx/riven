@@ -1,4 +1,4 @@
-### 1.5 How can I support Riven?
+## 1.5 How can I support Riven?
 
 Riven is a MIT licensed Open Source project hosted on GitHub. Just vist https://github.com/phortx/riven. You'll find
 the issues section there containing all bugs and feature requests. Also you can fork the project to open pull requests.

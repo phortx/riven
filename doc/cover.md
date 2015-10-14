@@ -34,6 +34,4 @@
 <br />
 
 
------
-
-powered by Benjamin Kammerl  |  visit *[github.com/phortx/riven](https://github.com/phortx/riven)*  |  MIT license
+> powered by Benjamin Kammerl  |  visit *[github.com/phortx/riven](https://github.com/phortx/riven)*  |  MIT license

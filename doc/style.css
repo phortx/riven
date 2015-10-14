@@ -1,0 +1,21 @@
+body {
+  color: #555;
+}
+
+h1 {
+  color: #337AB7;
+  font-weight: normal;
+}
+
+h2 {
+  font-weight: 500;
+}
+
+.cover-page h1 {
+  background-color: #337AB7;
+  color: #fff;
+}
+
+.cover-page blockquote {
+  background-color: #eee;
+}

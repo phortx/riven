@@ -1,4 +1,4 @@
-### 1.1 Scenario A: You want to write a book
+## 1.1 Scenario A: You want to write a book
 
 You are a bit familar with Linux or OSX. Maybe you even know what markdown is, but it's ok if you don't know markdown.
 And you want to write a book for some reason. Maybe a subject book, maybe a novel or maybe some fanfiction for whatever

@@ -1,4 +1,4 @@
-### 1.2 Scenario B: Your a coder and want to document your software
+## 1.2 Scenario B: Your a coder and want to document your software
 
 You have a software project, you're familar with Linux or OSX, HTML, CSS, Markdown and others. And you want to document
 your software in a plain text readable format. But you also want a very simple and lean tool chain, which compiles

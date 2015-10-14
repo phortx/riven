@@ -1,4 +1,4 @@
-## 1. What is Riven?
+# 1. What is Riven?
 
 In one sentence: Riven is a command line tool, which converts a bunch of markdown files into a PDF file.
 

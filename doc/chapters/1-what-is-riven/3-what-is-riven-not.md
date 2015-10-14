@@ -1,4 +1,4 @@
-### 1.3 What is Riven not?
+## 1.3 What is Riven not?
 
 Now you may have a clue what riven is. But it's maybe even more important to understand what riven actually is **not**.
 Well riven is neither a editor like atom nor a typesetting system like TeX nor a markup language like markdown or
