@@ -1,12 +1,13 @@
 # Riven
 
-Converts GitHub Flavored Markdown files to PDFs! Write documentations, books, reports and documents with your editor.
+Riven converts Markdown files to PDFs! Write documentations, books, reports and documents with your editor.
 Publish them as PDF! It's that simple and even more powerful.
 
 
 Feature highlights:
 
-- Riven Extended Markdown featuring includes: Structure you work!
+- Riven Extended Markdown (it's GitHub Flavored Markdown but with more features!)
+- Includes: Structure you work!
 - Generates well readable, optimized, beautiful looking PDFs
 - Style your PDF via CSS
 - Define a special and nice looking cover page
@@ -39,7 +40,7 @@ If it works, everything is nice and you may proceed with the next step. If not, 
 correctly installed and the executable is within your `PATH`.
 
 
-## Installation
+## Getting started right now
 
 Simple as usual:
 
@@ -48,20 +49,32 @@ $ gem install riven
 ```
 
 
-## Usage
+## How to use it?
 
 Riven is designed to create documents out of a bunch of markdown files. So it may take a single markdown file or a
-directory with some markdown files inside. Consider that the files are merged in alphabetical order if you provide a
-folder. Just take a look at the following examples.
+directory with some markdown files inside.
 
-
-### Single file to PDF
-
-This will take your `example.md` and generate a `example.pdf` in the same directory:
+However the basic usage is very simple. This example will take your `example.md` and generate a `example.pdf` in the
+same directory:
 
 ```bash
 $ riven example.md
 ```
+
+Couldn't be easier!
+
+
+## Looking for an example?
+
+You'll find a considerable example of a markdown based documentation in the doc directory of riven itself. And **here**
+you finde the resulting PDF with the documentation of riven.
+
+
+
+
+### Single file to PDF
+
+
 
 
 ### Multiple files
