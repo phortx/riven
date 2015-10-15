@@ -41,9 +41,18 @@ module Riven
       loop do
         non_found = true
 
-        @markup.gsub!(/<<\[\s*([^\]\s]+)\s*\]/) do |inc|
-          non_found = false
-          MarkupFile.new(@dirname.to_s + '/' + $1).markup
+        @markup.gsub!(/(.)?<<\[\s*([^\]\s]+)\s*\]/) do |inc|
+          if $1 == '_'
+            # special secret escape sign, will be removed afterwards.
+            # Required to avoid recursive substitution
+            inc.gsub!('_', '¦')
+            inc
+          elsif $1 == '¦'
+            inc
+          else
+            non_found = false
+            ($1 ? $1 : '') + MarkupFile.new(@dirname.to_s + '/' + $2).markup
+          end
         end
 
         break if non_found
@@ -95,6 +104,15 @@ module Riven
 
       private def exclude?(except, file)
         except.select { |f| f != '' && f.path === file.path }.any?
+      end
+
+
+      #
+      # Removes the internal escape sequence
+      #
+
+      public def remove_escape_sequences(markup)
+        markup.gsub('¦', '')
       end
     end
   end

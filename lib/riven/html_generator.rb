@@ -34,6 +34,7 @@ module Riven
     public def markup_to_html(markup)
       code = Riven::Markup::Code.new
 
+      markup = MarkupFile.remove_escape_sequences(markup)
       markup = code.extract(markup)
 
       opts = {
