@@ -4,7 +4,7 @@ In one sentence: Riven is a command line tool, which converts a bunch of markdow
 
 **The question is: Why would you do that?**
 
-There are several scenarios where the usage off a tool like riven would make a lot of sense for you. Let's take a look
+There are several scenarios where the usage of a tool like Riven would make a lot of sense for you. Let's take a look
 at some of them:
 
 <<[ 1-scenario-a.md ]

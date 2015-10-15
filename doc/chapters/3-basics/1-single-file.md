@@ -1,4 +1,4 @@
-## 3.1 A single file
+## 3.1. A single file
 
 Let's start small and transform a single file into your first beautiful PDF!
 

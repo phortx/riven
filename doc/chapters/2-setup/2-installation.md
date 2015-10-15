@@ -1,4 +1,4 @@
-## Install Riven
+## 2.2. Install Riven
 
 The installation of Riven is pretty simple. Just run:
 
@@ -13,3 +13,5 @@ After that you should have a `riven` command:
 ```bash
 $ riven -V
 ```
+
+That's it!
