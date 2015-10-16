@@ -20,7 +20,7 @@ module Riven
     public def generate_html
       css = File.read(File.expand_path(File.dirname(__FILE__)) + '/../../css/style.css')
 
-      unless @config.css_file.empty?
+      if @config.css_file != nil
         css << "\n\n"
         css << File.read(@config.css_file)
       end
