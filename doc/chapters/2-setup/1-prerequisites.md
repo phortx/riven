@@ -1,6 +1,6 @@
 ## 2.1. Prerequisites
 
-Riven comes with some dependencies, which you have to statisfy before you can start to use it. But no panic it's not
+Riven comes with two dependencies, which you have to statisfy before you can start to use it. But no panic it's not
 that hard.
 
 First of all you'll need [wkhtmltopdf](https://github.com/wkhtmltopdf/wkhtmltopdf/) in order to generate PDFs, since
@@ -13,14 +13,13 @@ All right, Let's go ...
 - If you got Arch Linux, you can just install the packages `wkhtmltopdf-static`and `icu48` from the AUR and you're done.
   Pretty easy, isn't it?
 
-- If you got another Linux Distribution (like Ubuntu) or OSX you have to compile `wkhtmltopdf` from the sources. See
-  http://natepinchot.com/2014/01/31/building-static-wkhtmltopdf/ for details. This may take some time: On my i7 it takes
-  about 20 minutes.
+- If you got another Linux Distribution (like Ubuntu) or OSX you can download wkhtmltopdf from the
+  [official website](http://wkhtmltopdf.org/downloads.html). Not that hard.
 
-- Otherwise, you can download `wkhtmltopdf` from the [official website](http://wkhtmltopdf.org/downloads.html).
 
-I know, that part is somewhat uncomfortable and this will change in the future. Either wkhtmltopdf will be automatically
-installed with the gem or riven comes with a Docker container. However, the installation will be easier in the future.
+- You can also compile `wkhtmltopdf` from the sources. See the
+  [official GitHub repository](https://github.com/wkhtmltopdf/wkhtmltopdf) for details. This may take some time: On
+  my i7 it takes about 20 minutes.
 
 After wkhtmltopdf is compiled, make sure you can execute the `wkhtmltopdf` command in your shell:
 
