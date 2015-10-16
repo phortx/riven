@@ -13,35 +13,34 @@ Riven::Wkhtmltopdf.check_installation
 
 
 ## Step 2: Parse command line options
-options = Riven::OptParser.options
-files = Riven::OptParser.files(options)
+config = Riven::OptParser.get_config
 
 
 ## Step 3: Change dir if directory is given to ensure the image pathes work
-unless options[:dir_given] === false
+unless config.dir_given === false
   working_dir = Dir.pwd
-  Dir.chdir options[:dir_given]
+  Dir.chdir config.dir_given
 end
 
 
 ## Step 4: Generate HTML for cover
-unless options[:cover_file] === ''
-  cover_markup = Riven::MarkupFile.read_cover(options[:cover_file])
+unless config.cover_file === ''
+  cover_markup = Riven::MarkupFile.read_cover(config.cover_file)
 end
-cover_generator = Riven::HTMLGenerator.new('_riven_cover_tmp_file.html', cover_markup || '', options)
+cover_generator = Riven::HTMLGenerator.new('_riven_cover_tmp_file.html', cover_markup || '', config)
 
 
 ## Step 5: Generate HTML for main document
-markup = Riven::MarkupFile.read_all(files, options[:cover_file])
-generator = Riven::HTMLGenerator.new('_riven_tmp_file.html', markup, options)
+markup = Riven::MarkupFile.read_all(config.files, config.cover_file)
+generator = Riven::HTMLGenerator.new('_riven_tmp_file.html', markup, config)
 
 
 ## Step 6: Determine PDF file name
-output_file = options[:output_file]
+output_file = config.pdf_output_file
 
 if output_file.empty?
-  unless options[:dir_given] === false
-    output_file = options[:dir_given] + '.pdf'
+  unless config.dir_given === false
+    output_file = config.dir_given + '.pdf'
   else
     puts "No output file name given. Please specify output file name via -o param."
     generator.close!
@@ -50,12 +49,12 @@ if output_file.empty?
   end
 end
 
-puts "Output file: #{output_file}" if options[:verbose]
+puts "Output file: #{output_file}" if config.dir_given
 
 
 ## Step 7: Generate the PDF file from HTML file
-output = Riven::Wkhtmltopdf.generate_pdf(generator.html_file, cover_generator.html_file, output_file, options)
-puts output if options[:verbose]
+output = Riven::Wkhtmltopdf.generate_pdf(generator.html_file, cover_generator.html_file, output_file, config)
+puts output if config.verbose
 
 
 ## Step 8: Close the generators
@@ -64,13 +63,13 @@ cover_generator.close!
 
 
 ## Step 9: Dump the HTML code if requested
-puts generator.html if options[:dump_html]
-puts cover_generator.html if options[:dump_cover_html]
+puts generator.html if config.dump_html
+puts cover_generator.html if config.dump_cover_html
 
 
 ## Step 10: If we changed the directory before, the PDF file is now located in the wrong directory,
 ## so wie have to move it
-unless options[:dir_given] === false
+unless config.dir_given === false
   require 'fileutils'
   FileUtils.mv output_file, working_dir + '/' + output_file
 end

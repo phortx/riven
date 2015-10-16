@@ -5,12 +5,12 @@ module Riven
         `wkhtmltopdf -V > /dev/null 2>&1`
 
         unless $?.exitstatus == 0
-          puts "Seems like wkhtmltopdf is not correctly installed or set up"
+          puts 'Seems like wkhtmltopdf is not correctly installed or set up'
           exit
         end
       end
 
-      public def generate_pdf(html_file, cover_html_file, output_file, options)
+      public def generate_pdf(html_file, cover_html_file, output_file, config)
         params = [
           '--page-size A4',
           '--margin-bottom 20mm',
@@ -23,13 +23,13 @@ module Riven
           '--footer-spacing 10'
         ]
 
-        unless options[:cover_file] === ''
+        unless config.cover_file === ''
           params << "cover \"#{cover_html_file.file_name}\""
         end
 
-        if options[:toc]
+        if config.generate_toc
           xsl = File.read(File.expand_path(File.dirname(__FILE__)) + '/../../toc.xsl')
-          xsl.gsub! '[[toc_headline]]', options[:toc_headline]
+          xsl.gsub! '[[toc_headline]]', config.toc_headline
           xsl_file_name = '_tmp_toc.xsl'
           File.open(xsl_file_name, 'w') { |file| file.write(xsl) }
 
@@ -39,9 +39,9 @@ module Riven
 
         output = `wkhtmltopdf #{params.join(' ')} "#{html_file.file_name}" "#{output_file}" 2>&1`
 
-        File.delete xsl_file_name if options[:toc]
+        File.delete xsl_file_name if config.generate_toc
 
-        return output
+        output
       end
     end
   end

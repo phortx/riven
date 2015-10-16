@@ -1,0 +1,10 @@
+pdf_output_file: riven.pdf
+cover_file: cover.md
+css_file: style.css
+generate_toc: true
+toc_headline: 'Contents'
+dump_html: false
+dump_cover_html: false
+verbose: true
+files:
+  - index.md

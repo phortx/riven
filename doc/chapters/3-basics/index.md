@@ -14,3 +14,4 @@ If you want to learn markdown, you should take a look at the
 <<[ 1-single-file.md ]
 <<[ 2-multiple-files.md ]
 <<[ 3-structured-files.md ]
+<<[ 4-config-file.md ]

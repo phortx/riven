@@ -93,7 +93,7 @@ module Riven
           end
         end
 
-        return markup
+        markup
       end
 
       public def read_cover(cover_file)
