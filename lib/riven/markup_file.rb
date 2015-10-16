@@ -73,8 +73,9 @@ module Riven
         if ref =~ /^http(s)?/
           "[#{label}](#{ref})"
         else
-          puts "    - Rewriting ref '#{ref}' to '#{@dirname}/#{ref}'"
-          "[#{label}](#{@dirname}/#{ref})"
+          new_path = File.expand_path("#{@dirname}/#{ref}")
+          puts "    - Rewriting ref '#{ref}' to '#{new_path}'"
+          "[#{label}](#{new_path})"
         end
       end
     end
