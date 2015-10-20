@@ -11,5 +11,6 @@ at some of them:
 <<[ 2-scenario-b.md ]
 
 <<[ 3-what-is-riven-not.md ]
-<<[ 4-why-was-riven-created.md ]
-<<[ 5-how-can-i-support-riven.md ]
+<<[ 4-riven-compared-to.md ]
+<<[ 5-why-was-riven-created.md ]
+<<[ 6-how-can-i-support-riven.md ]
